@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import dotenv from 'dotenv';
+import orderManage from './App/Routes/web/order.js';
+
 dotenv.config();
 
 const app = express();
@@ -30,7 +32,7 @@ app.use(cookieParser());
 // }));
 
 // Routes
-
+app.use('/api/Order',orderManage)
 // Connect to MongoDB
 mongoose.connect(process.env.dburl)
     .then(() => {
